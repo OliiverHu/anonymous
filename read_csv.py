@@ -23,7 +23,10 @@ def get_mhd_path(mhd_dir):
     return mhd_paths
 
 
+'''
 # 以下内容未使用
+'''
+'''
 def parse_csv_annotation(ann_dir, img_dir, cache_name, labels=[]):
     if os.path.exists(cache_name):
         with open(cache_name, 'rb') as handle:
@@ -125,11 +128,12 @@ def tran_data(point0, whl0, tran_type=1):
         return points
     else:
         pass
+'''
 
 
-if __name__ == '__main__':
-    filename = "chestCT_round1_annotation.csv"
-    mhd_path = "E:/Training/chestCT/test/"
-
-    insts, see_labels = parse_csv_annotation(filename, mhd_path, "E/xxx", ['1', '5', '31', '32'])
-    print(see_labels)
+# if __name__ == '__main__':
+#     filename = "chestCT_round1_annotation.csv"
+#     mhd_path = "E:/Training/chestCT/test/"
+#
+#     insts, see_labels = parse_csv_annotation(filename, mhd_path, "E/xxx", ['1', '5', '31', '32'])
+#     print(see_labels)
