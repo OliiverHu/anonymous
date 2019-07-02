@@ -1,6 +1,7 @@
 import numpy as np
 
-
+'''
+convert world coordinate to real coordinate
 # input: point0     (mm单位下中心点的坐标，list或者np.array格式)
 #        whl0       (mm单位下三边的长度，list或者np.array格式)
 #        origin     (mm单位下原点的坐标，list或者np.array格式)
@@ -8,6 +9,9 @@ import numpy as np
 # output:points[0]  (xyzmax)
 #        points     (points)
 #        points[7]  (xyzmin)
+'''
+
+
 def get_8_point(point0, whl0, origin, spacing):
     point0, whl0 = mm2pix(point0, whl0, origin, spacing)
     points = tran_data(point0, whl0)

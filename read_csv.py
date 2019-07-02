@@ -131,9 +131,9 @@ def tran_data(point0, whl0, tran_type=1):
 '''
 
 
-# if __name__ == '__main__':
-#     filename = "chestCT_round1_annotation.csv"
-#     mhd_path = "E:/Training/chestCT/test/"
-#
-#     insts, see_labels = parse_csv_annotation(filename, mhd_path, "E/xxx", ['1', '5', '31', '32'])
-#     print(see_labels)
+if __name__ == '__main__':
+    # filename = "chestCT_round1_annotation.csv"
+    mhd_path = "E:\\tianchi-chestCT\\chestCT_round1\\train_part1\\"
+
+    paths = get_mhd_path(mhd_path)
+    print(paths)
