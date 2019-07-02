@@ -5,9 +5,9 @@ import numpy as np
 #        whl0       (mm单位下三边的长度，list或者np.array格式)
 #        origin     (mm单位下原点的坐标，list或者np.array格式)
 #        spacing    (转换系数)
-# output:points[0]  (xyzmin)
+# output:points[0]  (xyzmax)
 #        points     (points)
-#        points[7]  (xyzmax)
+#        points[7]  (xyzmin)
 def get_8_point(point0, whl0, origin, spacing):
     point0, whl0 = mm2pix(point0, whl0, origin, spacing)
     points = tran_data(point0, whl0)
