@@ -78,8 +78,8 @@ for l in label:
     diameter = np.asarray([float(l[4]), float(l[5]), float(l[6])])
     if float(l[1]) != 0:
         maxCoord, Coord, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
-        # print("min coords:", minCoord)
-        # print("max coords :", maxCoord)
+        print("min coords :", minCoord)
+        print("label :", str(int(l[7])))
         if maxCoord[2] == minCoord[2]:
             image = np.squeeze(numpyImage[minCoord[2], ...])  # if the image is 3d, the slice is integer
             # # fig = plt.figure(image)
@@ -93,7 +93,11 @@ for l in label:
             plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
                                               height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
                                               fill=False, linewidth=0.5))
+            # plt.annotate(s=str(l[7]), xy=(minCoord[0], minCoord[1]))
+            plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                     style="italic", weight="light")
             plt.axis('on')
+            plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
             plt.show()
             # cv2.imwrite('1.png', numpyImage)
         else:
@@ -103,6 +107,10 @@ for l in label:
                 plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
                                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
                                                   fill=False, linewidth=0.5))
+                # plt.annotate(s=str(l[7]), xy=(minCoord[0], minCoord[1]))
+                plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                         style="italic", weight="light")
                 plt.axis('on')
+                plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
                 plt.show()
 
