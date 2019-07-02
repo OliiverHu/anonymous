@@ -63,7 +63,7 @@ def tran_data(point0, whl0, tran_type=1):
 
 
 if __name__ == '__main__':
-    point1 = [1, 2, 3]
+    point1 = [1, 1, 3]
     point1 = np.array(point1)
     whl1 = [1, 2, 3]
 
