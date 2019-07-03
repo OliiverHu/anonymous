@@ -2,9 +2,10 @@ import csv
 import SimpleITK as sitk
 import matplotlib.pyplot as plt
 import numpy as np
+from tran_mm_pix import get_8_point
 import cv2
 
-path = 'chestCT_round1_train_part1/test/318818.mhd'
+path = 'chestCT_round1/test/318818.mhd'
 
 
 def get_label_coords(csv_file, name):  # to get the label info in csv file
@@ -49,18 +50,6 @@ print(numpyImage.shape)  # 维度为(slice,w,h)
 # print(numpySpacing)
 
 
-'''
-convert world coordinate to real coordinate
-#########################################
-HELP MODIFY THESE TWO FUNCTIONs DOWN BELOW, in order to output INTEGER result
-#########################################
-'''
-def worldToVoxelCoord(worldCoord, origin, spacing):
-    stretchedVoxelCoord = np.absolute(worldCoord - origin)
-    voxelCoord = stretchedVoxelCoord / spacing
-    return voxelCoord
-
-
 def voxel_diameter(diameter, spacing):
     return diameter / spacing
 
@@ -76,22 +65,54 @@ for l in label:
     worldCoord = np.asarray([float(l[1]), float(l[2]), float(l[3])])
     diameter = np.asarray([float(l[4]), float(l[5]), float(l[6])])
     if float(l[1]) != 0:
-        voxelCoord = worldToVoxelCoord(worldCoord, numpyOrigin, numpySpacing)
-        print("center coords:", voxelCoord)
-        voxelDiameter = voxel_diameter(diameter, numpySpacing)
-        # print("diameter :", voxelDiameter)
-        image = np.squeeze(numpyImage[int(voxelCoord[2]), ...])  # if the image is 3d, the slice is integer
-        # fig = plt.figure(image)
-        plt.imshow(image, cmap='gray')
-        '''
-        bbox drawing
-        #########################################
-        TO IMPLEMENT: identify the (0, 0, 0) of all images
-        #########################################
-        '''
-        plt.gca().add_patch(plt.Rectangle(xy=(voxelCoord[0], voxelCoord[1]), width=voxelDiameter[0],
-                                          height=voxelDiameter[1], edgecolor='#FF0000',
-                                          fill=False, linewidth=0.5))
-        plt.axis('on')
-        plt.show()
-        # cv2.imwrite('1.png', numpyImage)
+        maxCoord, Coord, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
+        print("min coords :", minCoord)
+        print("label :", str(int(l[7])))
+        if maxCoord[2] == minCoord[2]:
+            image = np.squeeze(numpyImage[minCoord[2], ...])  # if the image is 3d, the slice is integer
+
+            '''
+            bbox drawing with matplotlib
+            '''
+            print(image)
+            # plt.imshow(image, cmap='gray')
+            # plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+            #                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
+            #                                   fill=False, linewidth=0.5))
+            #
+            # plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+            #          style="italic", weight="light")
+            # plt.axis('on')
+            # plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
+            # plt.show()
+
+            cv2.rectangle(image, (minCoord[0], minCoord[1]), (maxCoord[0], maxCoord[1]), color=(0, 255, 0),
+                          thickness=5)
+            cv2.imwrite(file_name + 'single_slice' + str(minCoord[2]) + '.png', image)
+            cv2.imshow("test", image)
+            cv2.waitKey(0)
+        else:
+            for i in range(minCoord[2], maxCoord[2]+1, 1):
+                image = np.squeeze(numpyImage[i, ...])
+
+                '''
+                bbox drawing with matplotlib
+                '''
+                # plt.imshow(image, cmap='gray')
+                # plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+                #                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
+                #                                   fill=False, linewidth=0.5))
+                #
+                # plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                #          style="italic", weight="light")
+                # plt.axis('on')
+                # plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
+                # plt.show()
+
+                cv2.rectangle(image, (minCoord[0], minCoord[1]), (maxCoord[0], maxCoord[1]), color=(0, 255, 0),
+                              thickness=2)
+                cv2.imwrite(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1) + '.png',
+                            image)
+                cv2.imshow("test", image)
+                cv2.waitKey(0)
+
