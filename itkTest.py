@@ -74,23 +74,18 @@ for l in label:
             '''
             bbox drawing with matplotlib
             '''
-            print(image)
-            # plt.imshow(image, cmap='gray')
-            #      plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
-            #                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
-            #                                   fill=False, linewidth=0.5))
-            #
-            # plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
-            #          style="italic", weight="light")
-            # plt.axis('on')
-            # plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
-            # plt.show()
+            # print(image)
+            plt.imshow(image, cmap='gray')
+            plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+                                              height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
+                                              fill=False, linewidth=0.5))
 
-            cv2.rectangle(image, (minCoord[0], minCoord[1]), (maxCoord[0], maxCoord[1]), color=(0, 255, 0),
-                          thickness=5)
-            cv2.imwrite(file_name + 'single_slice' + str(minCoord[2]) + '.png', image)
-            cv2.imshow("test", image)
-            cv2.waitKey(0)
+            plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                     style="italic", weight="light")
+            plt.axis('on')
+            plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
+            # plt.show()
+            plt.savefig(file_name + ' slice' + str(minCoord[2]))
         else:
             for i in range(minCoord[2], maxCoord[2]+1, 1):
                 image = np.squeeze(numpyImage[i, ...])
@@ -98,21 +93,16 @@ for l in label:
                 '''
                 bbox drawing with matplotlib
                 '''
-                # plt.imshow(image, cmap='gray')
-                # plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
-                #                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
-                #                                   fill=False, linewidth=0.5))
-                #
-                # plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
-                #          style="italic", weight="light")
-                # plt.axis('on')
-                # plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
-                # plt.show()
+                plt.imshow(image, cmap='gray')
+                plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+                                                  height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
+                                                  fill=False, linewidth=0.5))
 
-                cv2.rectangle(image, (minCoord[0], minCoord[1]), (maxCoord[0], maxCoord[1]), color=(0, 255, 0),
-                              thickness=2)
-                cv2.imwrite(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1) + '.png',
-                            image)
-                cv2.imshow("test", image)
-                cv2.waitKey(0)
+                plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                         style="italic", weight="light")
+                plt.axis('on')
+                plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
+                # plt.show()
+                plt.savefig(file_name + ' slice' + str(i))
+
 

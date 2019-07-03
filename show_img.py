@@ -28,7 +28,7 @@ def read_csv(filename):  # csv file reader
 
 def show_img():
     image_paths = []
-    input_path = 'E:/Training/chestCT/train_part1/'
+    input_path = 'chestCT_round1/test/'
     if os.path.isdir(input_path):
         for inp_file in os.listdir(input_path):
             image_paths += [input_path + inp_file]
@@ -72,7 +72,7 @@ def show_img():
                 xmax, ymax, zmax = pmax[0], pmax[1], pmax[2]
                 xmin, ymin, zmin = pmin[0], pmin[1], pmin[2]
                 if zmin <= k <= zmax:
-                    cv2.rectangle(image_show, (xmax, ymax), (xmin, ymin), color=255)
+                    cv2.rectangle(image_show, (xmax, ymax), (xmin, ymin), color=(0, 255, 0))
 
             # image_show = np.uint16((image_show+1500) * 32768//1500)
             cv2.imshow('show', image_show)
