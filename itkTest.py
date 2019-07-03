@@ -69,6 +69,7 @@ for l in label:
         print("min coords :", minCoord)
         print("label :", str(int(l[7])))
         if maxCoord[2] == minCoord[2]:
+            # print(minCoord[2])
             image = np.squeeze(numpyImage[minCoord[2], ...])  # if the image is 3d, the slice is integer
 
             '''
@@ -85,8 +86,12 @@ for l in label:
             plt.axis('on')
             plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
             # plt.show()
-            plt.savefig(file_name + ' slice' + str(minCoord[2]))
+            plt.savefig(file_name + 'single_slice' + str(minCoord[2]))
+            [p.remove() for p in reversed(plt.gca().patches)]
+            [p.remove() for p in reversed(plt.gca().texts)]
         else:
+            # for i in range(minCoord[2], maxCoord[2] + 1, 1):
+            #     print(i)
             for i in range(minCoord[2], maxCoord[2]+1, 1):
                 image = np.squeeze(numpyImage[i, ...])
 
@@ -103,6 +108,8 @@ for l in label:
                 plt.axis('on')
                 plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
                 # plt.show()
-                plt.savefig(file_name + ' slice' + str(i))
+                plt.savefig(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1))
+                [p.remove() for p in reversed(plt.gca().patches)]
+                [p.remove() for p in reversed(plt.gca().texts)]
 
 
