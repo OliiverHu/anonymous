@@ -76,7 +76,7 @@ for l in label:
             '''
             print(image)
             # plt.imshow(image, cmap='gray')
-            # plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+            #      plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
             #                                   height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
             #                                   fill=False, linewidth=0.5))
             #
