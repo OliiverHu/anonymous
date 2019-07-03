@@ -9,17 +9,25 @@ path = 'chestCT_round1/test/318818.mhd'
 
 
 def get_label_coords(csv_file, name):  # to get the label info in csv file
-    labels = np.zeros((50, 8), dtype=float)
-    temp_count = -1
-    for i in range(len(csv_file)):
-        if csv_file[i][0] == name:
-            temp_count += 1
-            for j in range(len(csv_file[i])):
-                labels[temp_count][j] = csv_file[i][j]
+    labels = []  # np.zeros((50, 8), dtype=float)
+    for row in csv_file:
+        if row[0] == name:
+            labels.append(row)
         else:
             pass
 
     return labels
+    # labels = np.zeros((50, 8), dtype=float)
+    # temp_count = -1
+    # for i in range(len(csv_file)):
+    #     if csv_file[i][0] == name:
+    #         temp_count += 1
+    #         for j in range(len(csv_file[i])):
+    #             labels[temp_count][j] = csv_file[i][j]
+    #     else:
+    #         pass
+    #
+    # return labels
 
 
 def read_csv(filename):  # csv file reader
@@ -64,18 +72,40 @@ label = get_label_coords(annos, file_name)
 for l in label:
     worldCoord = np.asarray([float(l[1]), float(l[2]), float(l[3])])
     diameter = np.asarray([float(l[4]), float(l[5]), float(l[6])])
-    if float(l[1]) != 0:
-        maxCoord, Coord, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
-        print("min coords :", minCoord)
-        print("label :", str(int(l[7])))
-        if maxCoord[2] == minCoord[2]:
-            # print(minCoord[2])
-            image = np.squeeze(numpyImage[minCoord[2], ...])  # if the image is 3d, the slice is integer
+
+    maxCoord, Coord, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
+    print("min coords :", minCoord)
+    print("label :", str(int(l[7])))
+    if maxCoord[2] == minCoord[2]:
+        # print(minCoord[2])
+        image = np.squeeze(numpyImage[minCoord[2], ...])  # if the image is 3d, the slice is integer
+
+        '''
+        bbox drawing with matplotlib
+        '''
+        # print(image)
+        plt.imshow(image, cmap='gray')
+        plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
+                                          height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
+                                          fill=False, linewidth=0.5))
+
+        plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
+                 style="italic", weight="light")
+        plt.axis('on')
+        plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
+        # plt.show()
+        plt.savefig(file_name + 'single_slice' + str(minCoord[2]))
+        [p.remove() for p in reversed(plt.gca().patches)]
+        [p.remove() for p in reversed(plt.gca().texts)]
+    else:
+        # for i in range(minCoord[2], maxCoord[2] + 1, 1):
+        #     print(i)
+        for i in range(minCoord[2], maxCoord[2]+1, 1):
+            image = np.squeeze(numpyImage[i, ...])
 
             '''
             bbox drawing with matplotlib
             '''
-            # print(image)
             plt.imshow(image, cmap='gray')
             plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
                                               height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
@@ -84,32 +114,11 @@ for l in label:
             plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
                      style="italic", weight="light")
             plt.axis('on')
-            plt.title(file_name + ' slice' + str(minCoord[2]), fontsize='large', fontweight='bold')
+            plt.title(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1),
+                      fontsize='large', fontweight='bold')
             # plt.show()
-            plt.savefig(file_name + 'single_slice' + str(minCoord[2]))
+            plt.savefig(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1))
             [p.remove() for p in reversed(plt.gca().patches)]
             [p.remove() for p in reversed(plt.gca().texts)]
-        else:
-            # for i in range(minCoord[2], maxCoord[2] + 1, 1):
-            #     print(i)
-            for i in range(minCoord[2], maxCoord[2]+1, 1):
-                image = np.squeeze(numpyImage[i, ...])
-
-                '''
-                bbox drawing with matplotlib
-                '''
-                plt.imshow(image, cmap='gray')
-                plt.gca().add_patch(plt.Rectangle(xy=(minCoord[0], minCoord[1]), width=maxCoord[0] - minCoord[0],
-                                                  height=maxCoord[1] - minCoord[1], edgecolor='#FF0000',
-                                                  fill=False, linewidth=0.5))
-
-                plt.text(minCoord[0], minCoord[1] - 10, str(int(l[7])), size=10, family="fantasy", color="r",
-                         style="italic", weight="light")
-                plt.axis('on')
-                plt.title(file_name + ' slice' + str(i), fontsize='large', fontweight='bold')
-                # plt.show()
-                plt.savefig(file_name + 'multi_slice' + str(minCoord[2]) + '_' + str(i - minCoord[2] + 1))
-                [p.remove() for p in reversed(plt.gca().patches)]
-                [p.remove() for p in reversed(plt.gca().texts)]
 
 
