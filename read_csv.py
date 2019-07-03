@@ -23,9 +23,6 @@ def get_mhd_path(mhd_dir):
     return mhd_paths
 
 
-
-
-
 # 以下内容未使用
 def parse_csv_annotation(ann_dir, img_dir, cache_name, labels=[]):
     if os.path.exists(cache_name):
@@ -99,6 +96,35 @@ def parse_csv_annotation(ann_dir, img_dir, cache_name, labels=[]):
 
     return all_insts, seen_labels
 
+
+def tran_data(point0, whl0, tran_type=1):
+    case = [[ 1, 1, 1],
+            [ 1, 1,-1],
+            [ 1,-1, 1],
+            [ 1,-1,-1],
+            [-1, 1, 1],
+            [-1, 1,-1],
+            [-1,-1, 1],
+            [-1,-1,-1]]
+    if tran_type:
+        points = []
+        for k in range(8):
+            point = [0, 0, 0]
+            for i in range(3):
+                point[i] = point0[i] + case[k][i] * (whl0[i]-1)/2
+                if point[i] - int(point[i]) < 1E-3 or int(point[i]) - point[i] + 1 < 1E-3:
+                    if point[i] < -0.5:
+                        print('<0')
+                    point[i] = int(point[i] + 0.1)
+                else:
+                    print(point0)
+                    print(whl0)
+                    print(point[i])
+                    print('------')
+            points.append(point)
+        return points
+    else:
+        pass
 
 
 if __name__ == '__main__':
