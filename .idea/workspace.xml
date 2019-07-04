@@ -39,8 +39,8 @@
       <file leaf-file-name="itkTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/itkTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2943">
-              <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+            <state relative-caret-position="378">
+              <caret line="77" column="23" lean-forward="false" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -51,11 +51,9 @@
       <file leaf-file-name="itkTest1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/itkTest1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="108">
+              <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,8 +113,8 @@
         <option value="$PROJECT_DIR$/temp.py" />
         <option value="$PROJECT_DIR$/show_img.py" />
         <option value="$PROJECT_DIR$/csv_writer.py" />
-        <option value="$PROJECT_DIR$/itkTest.py" />
         <option value="$PROJECT_DIR$/itkTest1.py" />
+        <option value="$PROJECT_DIR$/itkTest.py" />
       </list>
     </option>
   </component>
@@ -177,7 +175,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.itkTest1">
+  <component name="RunManager" selected="Python.itkTest">
     <configuration name="csv_writer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -277,8 +275,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.itkTest1" />
-        <item index="1" class="java.lang.String" itemvalue="Python.itkTest" />
+        <item index="0" class="java.lang.String" itemvalue="Python.itkTest" />
+        <item index="1" class="java.lang.String" itemvalue="Python.itkTest1" />
         <item index="2" class="java.lang.String" itemvalue="Python.csv_writer" />
         <item index="3" class="java.lang.String" itemvalue="Python.show_img" />
         <item index="4" class="java.lang.String" itemvalue="Python.read_csv" />
@@ -362,17 +360,24 @@
       <option name="project" value="LOCAL" />
       <updated>1562206108717</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="debug: restore the bbox">
+      <created>1562209059783</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562209059783</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17490494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17490494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19300699" sideWeight="0.5038023" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32447553" sideWeight="0.49619773" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32447553" sideWeight="0.49619773" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867134" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -399,7 +404,8 @@
     <MESSAGE value="optimize code structure and accelerate code execution speed" />
     <MESSAGE value="visualization and save to local: done" />
     <MESSAGE value="debug: save slices of those raw files without any label" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug: save slices of those raw files without any label" />
+    <MESSAGE value="debug: restore the bbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug: restore the bbox" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -553,18 +559,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/itkTest1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/itkTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2943">
-          <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+        <state relative-caret-position="378">
+          <caret line="77" column="23" lean-forward="false" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

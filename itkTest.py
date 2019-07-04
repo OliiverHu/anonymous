@@ -72,22 +72,23 @@ for mhd_path in mhd_paths:
                 # plt.show()
                 plt.savefig(file_name + '_slice' + str(i))
     else:
-        with open(temp_csv, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            for l in label:
-                worldCoord = np.asarray([float(l[1]), float(l[2]), float(l[3])])
-                diameter = np.asarray([float(l[4]), float(l[5]), float(l[6])])
+        # with open(temp_csv, 'w', newline='') as csvfile:
+        # writer = csv.writer(csvfile)
+        label_db = []
+        for l in label:
+            worldCoord = np.asarray([float(l[1]), float(l[2]), float(l[3])])
+            diameter = np.asarray([float(l[4]), float(l[5]), float(l[6])])
 
-                maxCoord, _, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
-                if maxCoord[2] == minCoord[2]:
-                    writer.writerow([minCoord[0], minCoord[1], maxCoord[0], maxCoord[1], minCoord[2], l[7]])
-                    # writer.writerow('\t')
-                else:
-                    for i in range(minCoord[2], maxCoord[2]+1, 1):
-                        writer.writerow([minCoord[0], minCoord[1], maxCoord[0], maxCoord[1], i, l[7]])
-                    # writer.writerow('\t')
+            maxCoord, _, minCoord = get_8_point(worldCoord, diameter, numpyOrigin, numpySpacing)
+            if maxCoord[2] == minCoord[2]:
+                label_db.append([minCoord[0], minCoord[1], maxCoord[0], maxCoord[1], minCoord[2], l[7]])
+                # writer.writerow('\t')
+            else:
+                for i in range(minCoord[2], maxCoord[2]+1, 1):
+                    label_db.append([minCoord[0], minCoord[1], maxCoord[0], maxCoord[1], i, l[7]])
+                # writer.writerow('\t')
 
-        bbox_label = read_csv(temp_csv)
+        bbox_label = label_db
         for i in range(s):
             image = np.squeeze(numpyImage[i, ...])  # if the image is 3d, the slice is integer
             for label in bbox_label:
