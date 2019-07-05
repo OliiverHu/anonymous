@@ -66,14 +66,18 @@ def tran_data(point0, whl0, tran_type=1):
         pass
 
 
-if __name__ == '__main__':
-    point1 = [1, 1, 3]
-    point1 = np.array(point1)
-    whl1 = [1, 2, 3]
+def voxel_diameter(dmt, spacing):
+    return dmt / spacing
 
-    origin1 = [1, 2, 3]
-    spacing1 = [1, 2, 3]
-    point2, whl2 = pix2mm(point1, whl1, origin1, spacing1)
-    print(point1)
-    print(point2)
-    print(whl2)
+
+# if __name__ == '__main__':
+#     point1 = [1, 1, 3]
+#     point1 = np.array(point1)
+#     whl1 = [1, 2, 3]
+#
+#     origin1 = [1, 2, 3]
+#     spacing1 = [1, 2, 3]
+#     point2, whl2 = pix2mm(point1, whl1, origin1, spacing1)
+#     print(point1)
+#     print(point2)
+#     print(whl2)

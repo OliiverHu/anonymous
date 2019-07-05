@@ -3,7 +3,7 @@ import SimpleITK as sitk
 import numpy as np
 import cv2
 import csv
-from tran_mm_pix import get_8_point
+from coordinates_translator import get_8_point
 
 
 def get_label_coords(csv_file, name):  # to get the label info in csv file

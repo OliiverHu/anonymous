@@ -3,24 +3,10 @@ import pickle
 import os
 import SimpleITK as sitk
 import numpy as np
-from tran_mm_pix import mm2pix
+from coordinates_translator import mm2pix
 
 
-# input: mhd_dir为mhd文件所在文件夹地址
-# output: mhd_paths为一个包含所有mhd文件地址的list，
-# 可直接用for mhd_path in mhd_paths:读取
-def get_mhd_path(mhd_dir):
-    mhd_paths = []
 
-    if os.path.isdir(mhd_dir):
-        for inp_file in os.listdir(mhd_dir):
-            mhd_paths += [mhd_dir + inp_file]
-    else:
-        mhd_paths += [mhd_dir]
-
-    mhd_paths = [inp_file for inp_file in mhd_paths if (inp_file[-4:] in ['.mhd'])]
-
-    return mhd_paths
 
 
 '''
