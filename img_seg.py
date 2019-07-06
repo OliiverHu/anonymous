@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import tool_packages
-import coordinates_translator
 from matplotlib import pyplot as plt
 from skimage.measure import label
 import random

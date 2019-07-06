@@ -4,12 +4,12 @@ import os
 import numpy as np
 
 
-'''
-# input: mhd_dir为mhd文件所在文件夹地址
-# output: mhd_paths为一个包含所有mhd文件地址的list，
-# 可直接用for mhd_path in mhd_paths:读取
-'''
 def get_mhd_path(mhd_dir):
+    """
+    # input: mhd_dir为mhd文件所在文件夹地址
+    # output: mhd_paths为一个包含所有mhd文件地址的list，
+    # 可直接用for mhd_path in mhd_paths:读取
+    """
     mhd_paths = []
 
     if os.path.isdir(mhd_dir):
@@ -23,12 +23,12 @@ def get_mhd_path(mhd_dir):
     return mhd_paths
 
 
-'''
-# to get the label info in csv file
-# csv_file: a csv file handler(list)
-# name: the id of mhd file
-'''
 def get_label_coords(csv_file, name):
+    """
+    # to get the label info in csv file
+    # csv_file: a csv file handler(list)
+    # name: the id of mhd file
+    """
     labels = []  # np.zeros((50, 8), dtype=float)
     for row in csv_file:
         if row[0] == name:
@@ -39,11 +39,11 @@ def get_label_coords(csv_file, name):
     return labels
 
 
-'''
-# csv file reader
-# filename: the path to annotations 'chestCT_round1_annotation.csv'
-'''
 def read_csv(filename):
+    """
+    # csv file reader
+    # filename: the path to annotations 'chestCT_round1_annotation.csv'
+    """
     lines = []
     with open(filename, "rt") as f:
         csvreader = csv.reader(f)
@@ -52,20 +52,20 @@ def read_csv(filename):
     return lines
 
 
-'''
-# get file name
-# filepath: the path to mhd(or raw) file
-'''
 def get_filename(file_path):
+    """
+    # get file name
+    # filepath: the path to mhd(or raw) file
+    """
     name = file_path.split('/')[-1].split('.')[0]
     return name
 
 
-'''
-# itk image loader
-# filename: the path to mhd file
-'''
 def load_itk_image(filename):
+    """
+    # itk image loader
+    # filename: the path to mhd file
+    """
     itkimage = sitk.ReadImage(filename)
     img = sitk.GetArrayFromImage(itkimage)
     origin = np.array(list(itkimage.GetOrigin()))  # CT原点坐标
