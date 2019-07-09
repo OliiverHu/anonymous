@@ -89,61 +89,86 @@ def img_windowing(image, max_thres, min_thres):
     return image, seg_thres
 
 
-def image_segmentor(mhdfile_path_list):
+def image_masked(img_mask, img):
+    """
+    :param img_mask: a binary mask to hide the background
+    :param img: raw image
+    :return: a background-masked image
+    """
+    # print(img)
+    # print(img_mask)
+    for i in range(len(img_mask)):
+        for j in range(len(img_mask[0])):
+            if img_mask[i][j] is img_mask[0][0]:
+                img[i][j] = 0
+            else:
+                pass
+    masked_image = img
+
+    return masked_image
+
+
+def image_segmentor(mhdfile_path):
     """
     Utility: image segmentation for lung CT scan,
     params:
-        mhdfile_path_list -> the path to mhd file
+        mhdfile_path -> the path to mhd file
     returns:
-        default
+        mask array
     """
     # mhd_path = path_to_file
-    for path in mhdfile_path_list:
-        file_name = tool_packages.get_filename(path)
-        img_set, origin, spacing = tool_packages.load_itk_image(path)
-        # slice_num, width, height = img_set.shape
-        for i in range(1):
-            image = np.squeeze(img_set[i, ...])
+    file_name = tool_packages.get_filename(mhdfile_path)
+    img_set, origin, spacing = tool_packages.load_itk_image(mhdfile_path)
+    slice_num, width, height = img_set.shape
+    rt = []
+    # print(slice_num)
+    for i in range(slice_num):
+        image = np.squeeze(img_set[i, ...])
 
-            max_pixel_value = image.max()
-            min_pixel_value = image.min()
+        max_pixel_value = image.max()
+        min_pixel_value = image.min()
 
-            # whole_hist_viz(image, max_pixel_value, min_pixel_value, file_name, str(i))
-            image, segment_threshold = img_windowing(image, max_pixel_value, min_pixel_value)
+        # whole_hist_viz(image, max_pixel_value, min_pixel_value, file_name, str(i))
+        image, segment_threshold = img_windowing(image, max_pixel_value, min_pixel_value)
 
-            im2, contours, _ = cv2.findContours(segment_threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        im2, contours, _ = cv2.findContours(segment_threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
-            kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
-            opening = cv2.morphologyEx(segment_threshold, cv2.MORPH_OPEN, kernel)
-            # closing = cv2.morphologyEx(segment_threshold, cv2.MORPH_CLOSE, kernel)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
+        opening = cv2.morphologyEx(segment_threshold, cv2.MORPH_OPEN, kernel)
+        # closing = cv2.morphologyEx(segment_threshold, cv2.MORPH_CLOSE, kernel)
 
-            lca = largest_connect_area(opening)
-            reversed_lca = largest_connect_area(binary_img_reverse(lca))
-            print(reversed_lca)
-            print(reversed_lca[256][256])
-            result = binary_img_reverse(reversed_lca)
-            print(result)
-            print(result[256][256])
-            # print(lca)
-            """
-            plt visualization below
-            """
-            plt.figure()
-            plt.subplot(2, 2, 1), plt.imshow(reversed_lca, 'gray'), plt.title('reversed_lca')
-            plt.subplot(2, 2, 2), plt.imshow(result, 'gray'), plt.title('result')
-            plt.subplot(2, 2, 3), plt.imshow(opening, 'gray'), plt.title('opening')
-            plt.subplot(2, 2, 4), plt.imshow(lca, 'gray'), plt.title('lca')
-            plt.show()
-            # cv2.imshow('test', image)
-            # cv2.waitKey()
-            # plt.axis('on')
-            # plt.title(file_name + '_slice' + str(i), fontsize='large', fontweight='bold')
-            # plt.show()
+        lca = largest_connect_area(opening)
+        reversed_lca = largest_connect_area(binary_img_reverse(lca))
+        # print(reversed_lca)
+        # print(reversed_lca[256][256])
+        # mask = binary_img_reverse(reversed_lca)
+        result = image_masked(reversed_lca, image)
+        # print(result)
+        # print(result[256][256])
+        # print(lca)
+        """
+        plt visualization below
+        """
+        # plt.figure()
+        # plt.subplot(2, 2, 1), plt.imshow(reversed_lca, 'gray'), plt.title('reversed_lca')
+        # plt.subplot(2, 2, 2), plt.imshow(result, 'gray'), plt.title('result')
+        # plt.subplot(2, 2, 3), plt.imshow(opening, 'gray'), plt.title('opening')
+        # plt.subplot(2, 2, 4), plt.imshow(lca, 'gray'), plt.title('lca')
+        # plt.show()
+        rt.append(result)
+
+    return rt, file_name, origin, spacing, slice_num, width, height
 
 
 # samples = random_sampling(mhd_dir)
 # print(samples)
-samples = ['E:/tianchi-chestCT/chestCT_round1/train_part1/325675.mhd']
-image_segmentor(samples)
-
+if __name__ == '__main__':
+    samples = 'chestCT_round1/test/318818.mhd'
+    result = image_segmentor(samples)
+    plt.figure()
+    plt.subplot(2, 2, 1), plt.imshow(result[0], 'gray'), plt.title('test1')
+    plt.subplot(2, 2, 2), plt.imshow(result[5], 'gray'), plt.title('test2')
+    plt.subplot(2, 2, 3), plt.imshow(result[10], 'gray'), plt.title('test3')
+    plt.subplot(2, 2, 4), plt.imshow(result[15], 'gray'), plt.title('test4')
+    plt.show()
 

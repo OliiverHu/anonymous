@@ -1,6 +1,5 @@
-import cv2
+import img_seg
 import numpy as np
-import tool_packages
 from matplotlib import pyplot as plt
 
 
@@ -9,21 +8,33 @@ samples = ['chestCT_round1/test/318818.mhd']
 
 
 def file_parser(mhdfile_path_list):
+    """
+    :Function a raw format file parser, to generate npy files for dl training
+    :param mhdfile_path_list: a list of mhd file path
+    :return: None
+    """
     for path in mhdfile_path_list:
-        file_name = tool_packages.get_filename(path)
-        img_set, origin, spacing = tool_packages.load_itk_image(path)
-        slice_num, width, height = img_set.shape
+        # mask = img_seg.image_segmentor(path)
+        # file_name = tool_packages.get_filename(path)
+        # img_set, origin, spacing = tool_packages.load_itk_image(path)
+        # slice_num, width, height = img_set.shape
+        masked_img, file_name, origin, spacing, slice_num, width, height = img_seg.image_segmentor(path)
         for i in range(2, slice_num-2, 1):
             five_channels = np.zeros([width, height, 5])
             for j in range(5):
                 for x in range(width):
                     for y in range(height):
-                        five_channels[x][y][j] = np.squeeze(img_set[i - 2 + j, ...])[x][y]
+                        five_channels[x][y][j] = masked_img[i - 2 + j][x][y]
 
             np.save(file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
 
 
 def npy_tensor_loader(npy_file_path):
+    """
+    Testing the parser module functionality
+    :param npy_file_path:
+    :return: None
+    """
     test_3d_tensor = np.load(npy_file_path)
     plt.figure()
     plt.subplot(2, 3, 1), plt.imshow(test_3d_tensor[:, :, 0], 'gray'), plt.title('')
@@ -39,5 +50,6 @@ def npy_tensor_loader(npy_file_path):
     return None
 
 
-# file_parser(samples)
-npy_tensor_loader('318818_slice0to4.npy')
+if __name__ == '__main__':
+    # file_parser(samples)
+    npy_tensor_loader('318818_slice0to4.npy')
