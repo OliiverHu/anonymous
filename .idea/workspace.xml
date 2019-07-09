@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8081fb24-0aa6-40ae-9681-dbb498d28852" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/label_parser.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/img_seg.py" afterPath="$PROJECT_DIR$/img_seg.py" />
+      <change beforePath="$PROJECT_DIR$/label_parser.py" afterPath="$PROJECT_DIR$/label_parser.py" />
       <change beforePath="$PROJECT_DIR$/rawfile_parser.py" afterPath="$PROJECT_DIR$/rawfile_parser.py" />
+      <change beforePath="$PROJECT_DIR$/tool_packages.py" afterPath="$PROJECT_DIR$/tool_packages.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,21 +16,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rawfile_parser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
+      <file leaf-file-name="tool_packages.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool_packages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="3051">
+              <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="img_seg.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rawfile_parser.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="img_seg.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/img_seg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="123" column="22" lean-forward="true" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+            <state relative-caret-position="4428">
+              <caret line="164" column="22" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -41,9 +55,11 @@
       <file leaf-file-name="label_parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/label_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="27">
+              <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,16 +124,16 @@
         <option value="$PROJECT_DIR$/read_csv.py" />
         <option value="$PROJECT_DIR$/itkTest.py" />
         <option value="$PROJECT_DIR$/tran_mm_pix.py" />
-        <option value="$PROJECT_DIR$/tool_packages.py" />
-        <option value="$PROJECT_DIR$/label_parser.py" />
         <option value="$PROJECT_DIR$/img_seg.py" />
         <option value="$PROJECT_DIR$/rawfile_parser.py" />
+        <option value="$PROJECT_DIR$/tool_packages.py" />
+        <option value="$PROJECT_DIR$/label_parser.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-115" />
-    <option name="y" value="167" />
+    <option name="x" value="-138" />
+    <option name="y" value="114" />
     <option name="width" value="1390" />
     <option name="height" value="920" />
   </component>
@@ -149,6 +165,12 @@
               <item name="anonymous" type="462c0819:PsiDirectoryNode" />
               <item name="chestCT_round1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="anonymous" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anonymous" type="462c0819:PsiDirectoryNode" />
+              <item name="chestCT_round1" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -173,24 +195,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.rawfile_parser">
-    <configuration name="csv_writer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="anonymous" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/csv_writer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="img_seg" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,7 +231,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="itkTest1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="label_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -239,7 +243,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="anonymous" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/itkTest1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/label_parser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -263,20 +267,38 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="tool_packages" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="anonymous" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tool_packages.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.itkTest" />
-      <item index="1" class="java.lang.String" itemvalue="Python.csv_writer" />
-      <item index="2" class="java.lang.String" itemvalue="Python.itkTest1" />
-      <item index="3" class="java.lang.String" itemvalue="Python.img_seg" />
-      <item index="4" class="java.lang.String" itemvalue="Python.rawfile_parser" />
+      <item index="1" class="java.lang.String" itemvalue="Python.img_seg" />
+      <item index="2" class="java.lang.String" itemvalue="Python.rawfile_parser" />
+      <item index="3" class="java.lang.String" itemvalue="Python.label_parser" />
+      <item index="4" class="java.lang.String" itemvalue="Python.tool_packages" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.rawfile_parser" />
-        <item index="1" class="java.lang.String" itemvalue="Python.img_seg" />
-        <item index="2" class="java.lang.String" itemvalue="Python.itkTest" />
-        <item index="3" class="java.lang.String" itemvalue="Python.itkTest1" />
-        <item index="4" class="java.lang.String" itemvalue="Python.csv_writer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tool_packages" />
+        <item index="2" class="java.lang.String" itemvalue="Python.label_parser" />
+        <item index="3" class="java.lang.String" itemvalue="Python.img_seg" />
+        <item index="4" class="java.lang.String" itemvalue="Python.itkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -392,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562396531090</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="1 rearrange the rawfile_parser's function &#10;2 slightly modify the in's &amp; out's of some modules">
+      <created>1562656956469</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1562656956469</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -434,7 +463,8 @@
     <MESSAGE value="cutting down IO stream" />
     <MESSAGE value="1 rename some scripts after reorganizing the code structures&#10;2 implement a ct image preprocessing function: generating mask to cover background" />
     <MESSAGE value="1 reorganizing some annotations&#10;2 implement the parser to yield 5 channels data for dl" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 reorganizing some annotations&#10;2 implement the parser to yield 5 channels data for dl" />
+    <MESSAGE value="1 rearrange the rawfile_parser's function &#10;2 slightly modify the in's &amp; out's of some modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 rearrange the rawfile_parser's function &#10;2 slightly modify the in's &amp; out's of some modules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -448,7 +478,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -500,7 +530,7 @@
         <state relative-caret-position="81">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,7 +556,7 @@
         <state relative-caret-position="2106">
           <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,7 +581,7 @@
         <state relative-caret-position="1554">
           <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -569,7 +599,6 @@
     <entry file="file://$PROJECT_DIR$/eggs.csv" />
     <entry file="file://$PROJECT_DIR$/temp.py" />
     <entry file="file://$PROJECT_DIR$/csv_writer.py" />
-    <entry file="file://$PROJECT_DIR$/test.csv" />
     <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/matplotlib/figure.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2751">
@@ -604,24 +633,6 @@
     <entry file="file://$PROJECT_DIR$/generator.py" />
     <entry file="file://$PROJECT_DIR$/bbox.py" />
     <entry file="file://$PROJECT_DIR$/temp.csv" />
-    <entry file="file://$PROJECT_DIR$/coordinates_translator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="81" column="19" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool_packages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-523">
-          <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/-313451744/cv2/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -638,14 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/label_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/read_csv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -654,20 +657,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
+    <entry file="file://$PROJECT_DIR$/test.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinates_translator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="81" column="19" lean-forward="false" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/318818.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chestCT_round1_annotation.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/label_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool_packages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3051">
+          <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/img_seg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="123" column="22" lean-forward="true" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+        <state relative-caret-position="4428">
+          <caret line="164" column="22" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

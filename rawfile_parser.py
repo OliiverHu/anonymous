@@ -1,4 +1,5 @@
 import img_seg
+from label_parser import label_parser
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -7,18 +8,16 @@ mhd_dir = 'chestCT_round1/test'
 samples = ['chestCT_round1/test/318818.mhd']
 
 
-def file_parser(mhdfile_path_list):
+def file_parser(mhdfile_path_list, anno_path):
     """
-    :Function a raw format file parser, to generate npy files for dl training
+    :Function a raw format file parser, to generate npy files and corresponding labels for dl training
     :param mhdfile_path_list: a list of mhd file path
+            anno_path: path to the annotation file
     :return: None
     """
     for path in mhdfile_path_list:
-        # mask = img_seg.image_segmentor(path)
-        # file_name = tool_packages.get_filename(path)
-        # img_set, origin, spacing = tool_packages.load_itk_image(path)
-        # slice_num, width, height = img_set.shape
         masked_img, file_name, origin, spacing, slice_num, width, height = img_seg.image_segmentor(path)
+        # masked images
         for i in range(2, slice_num-2, 1):
             five_channels = np.zeros([width, height, 5])
             for j in range(5):
@@ -27,6 +26,7 @@ def file_parser(mhdfile_path_list):
                         five_channels[x][y][j] = masked_img[i - 2 + j][x][y]
 
             np.save(file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
+            label_parser(file_name, anno_path, origin, spacing, i)
 
 
 def npy_tensor_loader(npy_file_path):
@@ -51,5 +51,5 @@ def npy_tensor_loader(npy_file_path):
 
 
 if __name__ == '__main__':
-    # file_parser(samples)
-    npy_tensor_loader('318818_slice0to4.npy')
+    file_parser(samples, 'chestCT_round1_annotation.csv')
+    # npy_tensor_loader('318818_slice0to4.npy')
