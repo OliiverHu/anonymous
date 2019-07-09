@@ -4,10 +4,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-mhd_dir = 'chestCT_round1/test'
-samples = ['chestCT_round1/test/318818.mhd']
-
-
 def file_parser(mhdfile_path_list, anno_path):
     """
     :Function a raw format file parser, to generate npy files and corresponding labels for dl training
@@ -51,5 +47,7 @@ def npy_tensor_loader(npy_file_path):
 
 
 if __name__ == '__main__':
+    mhd_dir = 'chestCT_round1/test'
+    samples = ['chestCT_round1/test/318818.mhd']
     file_parser(samples, 'chestCT_round1_annotation.csv')
     # npy_tensor_loader('318818_slice0to4.npy')

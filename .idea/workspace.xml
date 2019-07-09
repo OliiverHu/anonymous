@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8081fb24-0aa6-40ae-9681-dbb498d28852" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/label_parser.py" afterPath="$PROJECT_DIR$/label_parser.py" />
       <change beforePath="$PROJECT_DIR$/rawfile_parser.py" afterPath="$PROJECT_DIR$/rawfile_parser.py" />
-      <change beforePath="$PROJECT_DIR$/tool_packages.py" afterPath="$PROJECT_DIR$/tool_packages.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="rawfile_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+            <state relative-caret-position="314">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -125,9 +123,9 @@
         <option value="$PROJECT_DIR$/itkTest.py" />
         <option value="$PROJECT_DIR$/tran_mm_pix.py" />
         <option value="$PROJECT_DIR$/img_seg.py" />
-        <option value="$PROJECT_DIR$/rawfile_parser.py" />
         <option value="$PROJECT_DIR$/tool_packages.py" />
         <option value="$PROJECT_DIR$/label_parser.py" />
+        <option value="$PROJECT_DIR$/rawfile_parser.py" />
       </list>
     </option>
   </component>
@@ -421,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562656956469</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="1 implement label_parser with some bug fixed &#10;2 add some main() to test certain functions">
+      <created>1562672233784</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1562672233785</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -464,7 +469,8 @@
     <MESSAGE value="1 rename some scripts after reorganizing the code structures&#10;2 implement a ct image preprocessing function: generating mask to cover background" />
     <MESSAGE value="1 reorganizing some annotations&#10;2 implement the parser to yield 5 channels data for dl" />
     <MESSAGE value="1 rearrange the rawfile_parser's function &#10;2 slightly modify the in's &amp; out's of some modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 rearrange the rawfile_parser's function &#10;2 slightly modify the in's &amp; out's of some modules" />
+    <MESSAGE value="1 implement label_parser with some bug fixed &#10;2 add some main() to test certain functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 implement label_parser with some bug fixed &#10;2 add some main() to test certain functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -729,8 +735,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        <state relative-caret-position="314">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
