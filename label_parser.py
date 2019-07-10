@@ -33,8 +33,9 @@ def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice
                     pass
 
     header = 'obj ' + 'xmin ymin xmax ymax ' + 'inferior superior ' + 'class '
-    file = open(file_name + '_slice' + str(slice_num-2) + 'to' + str(slice_num+2) + '.txt', 'a')
-    file.write(file_name + '.npy')
+    n = file_name + '_slice' + str(slice_num-2) + 'to' + str(slice_num+2)
+    file = open(n + '.txt', 'a')
+    file.write(n + '.npy')
     file.write('\n')
     file.write(header)
     file.write('\n')
