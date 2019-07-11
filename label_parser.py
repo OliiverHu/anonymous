@@ -3,7 +3,7 @@ import coordinates_translator as translator
 import numpy as np
 
 
-def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice_num):
+def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice_num, def_path):
     csv_file = tool_packages.read_csv(annotation_path)
     labels = tool_packages.get_label_coords(csv_file, file_name)
     # print(labels)
@@ -36,6 +36,8 @@ def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice
     n = file_name + '_slice' + str(slice_num-2) + 'to' + str(slice_num+2)
     file = open(n + '.txt', 'a')
     file.write(n + '.npy')
+    file.write('\n')
+    file.write(def_path + '.npy')
     file.write('\n')
     file.write(header)
     file.write('\n')

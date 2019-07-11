@@ -17,14 +17,14 @@ def file_parser(mhdfile_path_list, anno_path, out_path):
         masked_img, file_name, origin, spacing, slice_num, width, height = img_seg.image_segmentor(path)
         # masked images
         for i in range(2, slice_num-2, 1):
-            five_channels = np.zeros([width, height, 5])
-            for j in range(5):
-                for x in range(width):
-                    for y in range(height):
-                        five_channels[x][y][j] = masked_img[i - 2 + j][x][y]
+            # five_channels = np.zeros([width, height, 5])
+            # for j in range(5):
+            #     for x in range(width):
+            #         for y in range(height):
+            #             five_channels[x][y][j] = masked_img[i - 2 + j][x][y]
 
-            np.save(out_path + file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
-            label_parser(out_path + file_name, anno_path, origin, spacing, i)
+            # np.save(out_path + file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
+            label_parser(out_path + file_name, anno_path, origin, spacing, i, path)
         count += 1
         print('file processed: ' + str(count) + '/' + str(length))
 

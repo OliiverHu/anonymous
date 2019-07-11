@@ -125,24 +125,24 @@ def image_segmentor(mhdfile_path):
     for i in range(slice_num):
         image = np.squeeze(img_set[i, ...])
 
-        max_pixel_value = image.max()
-        min_pixel_value = image.min()
-
-        # whole_hist_viz(image, max_pixel_value, min_pixel_value, file_name, str(i))
-        image, segment_threshold = img_windowing(image, max_pixel_value, min_pixel_value)
-
-        im2, contours, _ = cv2.findContours(segment_threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-
-        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
-        opening = cv2.morphologyEx(segment_threshold, cv2.MORPH_OPEN, kernel)
-        # closing = cv2.morphologyEx(segment_threshold, cv2.MORPH_CLOSE, kernel)
-
-        lca = largest_connect_area(opening)
-        reversed_lca = largest_connect_area(binary_img_reverse(lca))
-        # print(reversed_lca)
-        # print(reversed_lca[256][256])
-        # mask = binary_img_reverse(reversed_lca)
-        result = image_masked(reversed_lca, image)
+        # max_pixel_value = image.max()
+        # min_pixel_value = image.min()
+        #
+        # # whole_hist_viz(image, max_pixel_value, min_pixel_value, file_name, str(i))
+        # image, segment_threshold = img_windowing(image, max_pixel_value, min_pixel_value)
+        #
+        # im2, contours, _ = cv2.findContours(segment_threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        #
+        # kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
+        # opening = cv2.morphologyEx(segment_threshold, cv2.MORPH_OPEN, kernel)
+        # # closing = cv2.morphologyEx(segment_threshold, cv2.MORPH_CLOSE, kernel)
+        #
+        # lca = largest_connect_area(opening)
+        # reversed_lca = largest_connect_area(binary_img_reverse(lca))
+        # # print(reversed_lca)
+        # # print(reversed_lca[256][256])
+        # # mask = binary_img_reverse(reversed_lca)
+        # result = image_masked(reversed_lca, image)
         # print(result)
         # print(result[256][256])
         # print(lca)
@@ -155,7 +155,7 @@ def image_segmentor(mhdfile_path):
         # plt.subplot(2, 2, 3), plt.imshow(opening, 'gray'), plt.title('opening')
         # plt.subplot(2, 2, 4), plt.imshow(lca, 'gray'), plt.title('lca')
         # plt.show()
-        rt.append(result)
+        rt.append(image)
 
     return rt, file_name, origin, spacing, slice_num, width, height
 
