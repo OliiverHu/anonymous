@@ -26,7 +26,7 @@ def file_parser(mhdfile_path_list, anno_path, out_path):
             np.save(out_path + file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
             label_parser(out_path + file_name, anno_path, origin, spacing, i)
         count += 1
-        print('file processed: ' + count + '/' + length)
+        print('file processed: ' + str(count) + '/' + str(length))
 
 
 def npy_tensor_loader(npy_file_path):

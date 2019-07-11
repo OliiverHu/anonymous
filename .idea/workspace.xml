@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8081fb24-0aa6-40ae-9681-dbb498d28852" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/data_preprocess.py" afterPath="$PROJECT_DIR$/data_preprocess.py" />
       <change beforePath="$PROJECT_DIR$/rawfile_parser.py" afterPath="$PROJECT_DIR$/rawfile_parser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="rawfile_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="459">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -461,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562832793352</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="bug fixed &#10;add a process bar">
+      <created>1562834050348</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1562834050348</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -508,7 +514,8 @@
     <MESSAGE value="rearrange code structure" />
     <MESSAGE value="a bug fixed" />
     <MESSAGE value="implement a simple linux sys script for preprocessing&#10;change the interface file_parser(add outpath" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement a simple linux sys script for preprocessing&#10;change the interface file_parser(add outpath" />
+    <MESSAGE value="bug fixed &#10;add a process bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixed &#10;add a process bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rawfile_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="459">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
