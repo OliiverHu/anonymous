@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def file_parser(mhdfile_path_list, anno_path):
+def file_parser(mhdfile_path_list, anno_path, out_path):
     """
     :Function a raw format file parser, to generate npy files and corresponding labels for dl training
     :param mhdfile_path_list: a list of mhd file path
@@ -21,8 +21,8 @@ def file_parser(mhdfile_path_list, anno_path):
                     for y in range(height):
                         five_channels[x][y][j] = masked_img[i - 2 + j][x][y]
 
-            np.save(file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
-            label_parser(file_name, anno_path, origin, spacing, i)
+            np.save(out_path + file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
+            label_parser(out_path + file_name, anno_path, origin, spacing, i)
 
 
 def npy_tensor_loader(npy_file_path):
@@ -49,5 +49,5 @@ def npy_tensor_loader(npy_file_path):
 if __name__ == '__main__':
     mhd_dir = 'chestCT_round1/test'
     samples = ['chestCT_round1/test/318818.mhd']
-    file_parser(samples, 'chestCT_round1_annotation.csv')
+    file_parser(samples, 'chestCT_round1_annotation.csv', 'chestCT_round1/test/')
     # npy_tensor_loader('318818_slice0to4.npy')
