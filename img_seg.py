@@ -108,7 +108,7 @@ def image_masked(img_mask, img):
     return masked_image
 
 
-def image_segmentor(mhdfile_path):
+def image_segmentor(mhdfile_path, slice_id):
     """
     Utility: image segmentation for lung CT scan,
     params:
@@ -122,13 +122,12 @@ def image_segmentor(mhdfile_path):
     slice_num, width, height = img_set.shape
     rt = []
     # print(slice_num)
-    for i in range(slice_num):
+    for i in range(slice_id-2, slice_id+3, 1):
         image = np.squeeze(img_set[i, ...])
 
         # max_pixel_value = image.max()
         # min_pixel_value = image.min()
         #
-        # # whole_hist_viz(image, max_pixel_value, min_pixel_value, file_name, str(i))
         # image, segment_threshold = img_windowing(image, max_pixel_value, min_pixel_value)
         #
         # im2, contours, _ = cv2.findContours(segment_threshold, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
@@ -139,10 +138,11 @@ def image_segmentor(mhdfile_path):
         #
         # lca = largest_connect_area(opening)
         # reversed_lca = largest_connect_area(binary_img_reverse(lca))
-        # # print(reversed_lca)
-        # # print(reversed_lca[256][256])
-        # # mask = binary_img_reverse(reversed_lca)
+        #
         # result = image_masked(reversed_lca, image)
+
+
+
         # print(result)
         # print(result[256][256])
         # print(lca)

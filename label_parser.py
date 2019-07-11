@@ -5,7 +5,9 @@ import numpy as np
 
 def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice_num, def_path):
     csv_file = tool_packages.read_csv(annotation_path)
-    labels = tool_packages.get_label_coords(csv_file, file_name)
+    ab_name = tool_packages.get_filename(file_name)
+    # print(ab_name)
+    labels = tool_packages.get_label_coords(csv_file, ab_name)
     # print(labels)
     label_db = []
     for label in labels:
@@ -35,8 +37,9 @@ def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice
     header = 'obj ' + 'xmin ymin xmax ymax ' + 'inferior superior ' + 'class '
     n = file_name + '_slice' + str(slice_num-2) + 'to' + str(slice_num+2)
     file = open(n + '.txt', 'a')
-    file.write(n + '.npy')
+    file.write(str(slice_num))
     file.write('\n')
+    def_path = def_path.replace('.mhd', '.raw')
     file.write(def_path)
     file.write('\n')
     file.write(header)
