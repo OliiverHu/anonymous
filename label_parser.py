@@ -37,7 +37,7 @@ def label_parser(file_name, annotation_path, origin_pos, spacing_interval, slice
     file = open(n + '.txt', 'a')
     file.write(n + '.npy')
     file.write('\n')
-    file.write(def_path + '.npy')
+    file.write(def_path)
     file.write('\n')
     file.write(header)
     file.write('\n')
