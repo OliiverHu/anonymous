@@ -11,6 +11,8 @@ def file_parser(mhdfile_path_list, anno_path, out_path):
             anno_path: path to the annotation file
     :return: None
     """
+    length = len(mhdfile_path_list)
+    count = 0
     for path in mhdfile_path_list:
         masked_img, file_name, origin, spacing, slice_num, width, height = img_seg.image_segmentor(path)
         # masked images
@@ -23,6 +25,8 @@ def file_parser(mhdfile_path_list, anno_path, out_path):
 
             np.save(out_path + file_name + '_slice' + str(i-2) + 'to' + str(i+2) + '.npy', five_channels)
             label_parser(out_path + file_name, anno_path, origin, spacing, i)
+        count += 1
+        print('file processed: ' + count + '/' + length)
 
 
 def npy_tensor_loader(npy_file_path):
